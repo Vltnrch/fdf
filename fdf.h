@@ -6,7 +6,7 @@
 /*   By: vroche <vroche@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 18:32:24 by vroche            #+#    #+#             */
-/*   Updated: 2015/01/26 16:53:00 by vroche           ###   ########.fr       */
+/*   Updated: 2015/03/09 11:46:36 by vroche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char				**ft_nbrstrsplit(char const *s);
 void				ft_put_pixel_to_image(unsigned long img_color, \
 											t_env *env, int x, int y);
 t_fdf				*get_file(char *file, t_env *env);
-void				init_conf(t_env *env);
+void				init_conf(t_env *env, int r);
 int					key_hook(int keycode, t_env *env);
 void				ft_error(int errnum, char *s);
 

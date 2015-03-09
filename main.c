@@ -6,7 +6,7 @@
 /*   By: vroche <vroche@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/02 15:57:14 by vroche            #+#    #+#             */
-/*   Updated: 2015/03/09 09:28:28 by vroche           ###   ########.fr       */
+/*   Updated: 2015/03/09 11:46:20 by vroche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int			main(int ac, char **av)
 		return (0);
 	}
 	ft_printkey();
-	init_conf(&env);
+	init_conf(&env, 0);
 	env.win = mlx_new_window(env.mlx, LENGHT, HEIGHT, "FdF");
 	ft_fdf(&env);
 	mlx_expose_hook(env.win, ft_expose, &env);

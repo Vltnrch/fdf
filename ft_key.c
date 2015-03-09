@@ -6,7 +6,7 @@
 /*   By: vroche <vroche@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 15:09:15 by vroche            #+#    #+#             */
-/*   Updated: 2015/01/26 17:00:00 by vroche           ###   ########.fr       */
+/*   Updated: 2015/03/09 11:59:26 by vroche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,20 @@
 
 #include "fdf.h"
 
-void	init_conf(t_env *env)
+void	init_conf(t_env *env, int r)
 {
 	env->bpp = 24;
 	env->sizeline = 4 * LENGHT;
 	env->endian = 0;
-	env->mlx = mlx_init();
+	if (r == 0)
+	{
+		if (!(env->mlx = mlx_init()))
+		{
+			ft_putstr_fd("mlx fails to set up the connection \
+						to the X server\n", 2);
+			exit(0);
+		}
+	}
 	env->img = NULL;
 	env->data = NULL;
 	env->angle = 0;
@@ -51,7 +59,7 @@ int		key_hook(int keycode, t_env *env)
 	env->zm = (keycode == 258) ? env->zm - 1 : env->zm;
 	env->zm = (keycode == 257) ? env->zm + 1 : env->zm;
 	if (keycode == 15)
-		init_conf(env);
+		init_conf(env, 1);
 	ft_fdf(env);
 	ft_expose(env);
 	return (0);
@@ -64,6 +72,8 @@ void	ft_printkey(void)
 Up/Down/Left/Right : Move\n\
 -/+ : Zoom -/+\n\
 a/d : Rotation left/right\n\
-Shift/Ctrl : Change z coeff\n\n\
+Shift/Ctrl : Change z coeff\n\
+r : Reset\n\
+Esc : Exit FdF\n\n\
 .................\n");
 }

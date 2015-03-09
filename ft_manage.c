@@ -6,7 +6,7 @@
 /*   By: vroche <vroche@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 14:57:32 by vroche            #+#    #+#             */
-/*   Updated: 2015/01/26 15:34:23 by vroche           ###   ########.fr       */
+/*   Updated: 2015/03/09 11:57:52 by vroche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_fdf		*get_file(char *file, t_env *env)
 	}
 	if (errno != 0)
 		ft_error(errno, file);
+	ft_memdel((void **)&line);
 	close(fd);
 	env->hmax = ft_list_size_fdf(first);
 	get_listsize(env, first);
@@ -80,7 +81,11 @@ t_fdf		*get_file(char *file, t_env *env)
 
 int			ft_expose(t_env *env)
 {
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+	if (!mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0))
+	{
+		ft_putstr_fd("mlx_new_window() fails to create a new window\n", 2);
+		exit(0);
+	}
 	return (0);
 }
 
@@ -88,5 +93,5 @@ void		ft_error(int errnum, char *s)
 {
 	perror(s);
 	strerror(errnum);
-	exit (0);
+	exit(0);
 }
