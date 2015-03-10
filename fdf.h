@@ -6,7 +6,7 @@
 /*   By: vroche <vroche@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 18:32:24 by vroche            #+#    #+#             */
-/*   Updated: 2015/03/09 11:46:36 by vroche           ###   ########.fr       */
+/*   Updated: 2015/03/09 12:05:38 by vroche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # include "libft.h"
 
 # define ANGLE (M_PI / 6)
-# define LARGEUR 10
-# define HAUTEUR 10
+# define LARGEUR 8
+# define HAUTEUR 8
 # define LENGHT 1300
 # define HEIGHT 800
 # define COEF 2

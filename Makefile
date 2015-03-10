@@ -6,7 +6,7 @@
 #    By: vroche <vroche@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/06 17:32:05 by vroche            #+#    #+#              #
-#    Updated: 2015/01/26 15:10:23 by vroche           ###   ########.fr        #
+#    Updated: 2015/03/10 11:30:09 by vroche           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ clean:
 	make -C ./libft clean
 	make -C ./minilibx_macos clean
 
-fclean:
+fclean: clean
 	make -C ./libft fclean
 	rm -f $(NAME)
 
